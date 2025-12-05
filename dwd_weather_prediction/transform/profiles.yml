@@ -1,0 +1,8 @@
+dwd_weather:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/processed/weather.duckdb'
+      extensions:
+        - parquet
