@@ -51,15 +51,64 @@ features as (
         lag(pressure_surface, 1) over (order by date) as pressure_surface_lag_1,
 
         -- Targets (Next 1 day)
+        -- Targets (Next 7 days)
+        
         lead(temp_mean, 1) over (order by date) as target_temp_mean_day_1,
         lead(temp_max, 1) over (order by date) as target_temp_max_day_1,
         lead(temp_min, 1) over (order by date) as target_temp_min_day_1,
         lead(wind_speed, 1) over (order by date) as target_wind_speed_day_1,
         lead(humidity, 1) over (order by date) as target_humidity_day_1,
         lead(pressure_surface, 1) over (order by date) as target_pressure_surface_day_1,
-        lead(month, 1) over (order by date) as target_month_day_1,
-        lead(day_of_year, 1) over (order by date) as target_day_of_year_day_1,
-        lead(is_raining, 1) over (order by date) as target_is_raining_day_1
+        lead(is_raining, 1) over (order by date) as target_is_raining_day_1,
+        
+        lead(temp_mean, 2) over (order by date) as target_temp_mean_day_2,
+        lead(temp_max, 2) over (order by date) as target_temp_max_day_2,
+        lead(temp_min, 2) over (order by date) as target_temp_min_day_2,
+        lead(wind_speed, 2) over (order by date) as target_wind_speed_day_2,
+        lead(humidity, 2) over (order by date) as target_humidity_day_2,
+        lead(pressure_surface, 2) over (order by date) as target_pressure_surface_day_2,
+        lead(is_raining, 2) over (order by date) as target_is_raining_day_2,
+        
+        lead(temp_mean, 3) over (order by date) as target_temp_mean_day_3,
+        lead(temp_max, 3) over (order by date) as target_temp_max_day_3,
+        lead(temp_min, 3) over (order by date) as target_temp_min_day_3,
+        lead(wind_speed, 3) over (order by date) as target_wind_speed_day_3,
+        lead(humidity, 3) over (order by date) as target_humidity_day_3,
+        lead(pressure_surface, 3) over (order by date) as target_pressure_surface_day_3,
+        lead(is_raining, 3) over (order by date) as target_is_raining_day_3,
+        
+        lead(temp_mean, 4) over (order by date) as target_temp_mean_day_4,
+        lead(temp_max, 4) over (order by date) as target_temp_max_day_4,
+        lead(temp_min, 4) over (order by date) as target_temp_min_day_4,
+        lead(wind_speed, 4) over (order by date) as target_wind_speed_day_4,
+        lead(humidity, 4) over (order by date) as target_humidity_day_4,
+        lead(pressure_surface, 4) over (order by date) as target_pressure_surface_day_4,
+        lead(is_raining, 4) over (order by date) as target_is_raining_day_4,
+        
+        lead(temp_mean, 5) over (order by date) as target_temp_mean_day_5,
+        lead(temp_max, 5) over (order by date) as target_temp_max_day_5,
+        lead(temp_min, 5) over (order by date) as target_temp_min_day_5,
+        lead(wind_speed, 5) over (order by date) as target_wind_speed_day_5,
+        lead(humidity, 5) over (order by date) as target_humidity_day_5,
+        lead(pressure_surface, 5) over (order by date) as target_pressure_surface_day_5,
+        lead(is_raining, 5) over (order by date) as target_is_raining_day_5,
+        
+        lead(temp_mean, 6) over (order by date) as target_temp_mean_day_6,
+        lead(temp_max, 6) over (order by date) as target_temp_max_day_6,
+        lead(temp_min, 6) over (order by date) as target_temp_min_day_6,
+        lead(wind_speed, 6) over (order by date) as target_wind_speed_day_6,
+        lead(humidity, 6) over (order by date) as target_humidity_day_6,
+        lead(pressure_surface, 6) over (order by date) as target_pressure_surface_day_6,
+        lead(is_raining, 6) over (order by date) as target_is_raining_day_6,
+        
+        lead(temp_mean, 7) over (order by date) as target_temp_mean_day_7,
+        lead(temp_max, 7) over (order by date) as target_temp_max_day_7,
+        lead(temp_min, 7) over (order by date) as target_temp_min_day_7,
+        lead(wind_speed, 7) over (order by date) as target_wind_speed_day_7,
+        lead(humidity, 7) over (order by date) as target_humidity_day_7,
+        lead(pressure_surface, 7) over (order by date) as target_pressure_surface_day_7,
+        lead(is_raining, 7) over (order by date) as target_is_raining_day_7,
+        
     from cleaned
 )
 

@@ -147,13 +147,13 @@ def train_model():
     feature_cols = [c for c in feature_cols if c in df.columns]
     print(f"Features: {feature_cols}")
 
-    targets = {
-        'temp_min': ('target_temp_min_day_1', 'regression'),
-        'temp_max': ('target_temp_max_day_1', 'regression'),
-        'wind_speed': ('target_wind_speed_day_1', 'regression'),
-        'humidity': ('target_humidity_day_1', 'regression'),
-        'rain_prob': ('target_is_raining_day_1', 'classification')
-    }
+    targets = {}
+    for i in range(1, 8):
+        targets[f'temp_min_day_{i}'] = (f'target_temp_min_day_{i}', 'regression')
+        targets[f'temp_max_day_{i}'] = (f'target_temp_max_day_{i}', 'regression')
+        targets[f'wind_speed_day_{i}'] = (f'target_wind_speed_day_{i}', 'regression')
+        targets[f'humidity_day_{i}'] = (f'target_humidity_day_{i}', 'regression')
+        targets[f'rain_prob_day_{i}'] = (f'target_is_raining_day_{i}', 'classification')
 
     os.makedirs(MODEL_DIR, exist_ok=True)
 

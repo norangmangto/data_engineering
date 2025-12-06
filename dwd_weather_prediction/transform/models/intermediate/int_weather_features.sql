@@ -51,15 +51,16 @@ features as (
         lag(pressure_surface, 1) over (order by date) as pressure_surface_lag_1,
 
         -- Targets (Next 1 day)
-        lead(temp_mean, 1) over (order by date) as target_temp_mean_day_1,
-        lead(temp_max, 1) over (order by date) as target_temp_max_day_1,
-        lead(temp_min, 1) over (order by date) as target_temp_min_day_1,
-        lead(wind_speed, 1) over (order by date) as target_wind_speed_day_1,
-        lead(humidity, 1) over (order by date) as target_humidity_day_1,
-        lead(pressure_surface, 1) over (order by date) as target_pressure_surface_day_1,
-        lead(month, 1) over (order by date) as target_month_day_1,
-        lead(day_of_year, 1) over (order by date) as target_day_of_year_day_1,
-        lead(is_raining, 1) over (order by date) as target_is_raining_day_1
+        -- Targets (Next 7 days)
+        {% for i in range(1, 8) %}
+        lead(temp_mean, {{ i }}) over (order by date) as target_temp_mean_day_{{ i }},
+        lead(temp_max, {{ i }}) over (order by date) as target_temp_max_day_{{ i }},
+        lead(temp_min, {{ i }}) over (order by date) as target_temp_min_day_{{ i }},
+        lead(wind_speed, {{ i }}) over (order by date) as target_wind_speed_day_{{ i }},
+        lead(humidity, {{ i }}) over (order by date) as target_humidity_day_{{ i }},
+        lead(pressure_surface, {{ i }}) over (order by date) as target_pressure_surface_day_{{ i }},
+        lead(is_raining, {{ i }}) over (order by date) as target_is_raining_day_{{ i }},
+        {% endfor %}
     from cleaned
 )
 

@@ -22,18 +22,28 @@ async def load_models():
     """Load all trained models into memory"""
     print("Loading models...")
 
-    # Load XGBoost models
-    for target in ['temp_min', 'temp_max', 'wind_speed', 'humidity', 'rain_prob']:
-        model_path = os.path.join(MODEL_DIR, f"xgb_{target}.pkl")
-        if os.path.exists(model_path):
-            models[f"xgb_{target}"] = joblib.load(model_path)
-            print(f"Loaded XGBoost model for {target}")
+    # Load XGBoost models for 7 days
+    targets = ['temp_min', 'temp_max', 'wind_speed', 'humidity', 'rain_prob']
+    for i in range(1, 8):
+        for target in targets:
+            name = f"{target}_day_{i}"
+            model_path = os.path.join(MODEL_DIR, f"xgb_{name}.pkl")
+            if os.path.exists(model_path):
+                models[f"xgb_{name}"] = joblib.load(model_path)
+                print(f"Loaded XGBoost model for {name}")
 
     print(f"Loaded {len(models)} models")
 
-class PredictionResponse(BaseModel):
+class DailyPrediction(BaseModel):
     date: str
-    predictions: Dict[str, float]
+    temp_min: float
+    temp_max: float
+    wind_speed: float
+    humidity: float
+    rain_prob: float
+
+class ForecastResponse(BaseModel):
+    forecast: List[DailyPrediction]
     model_type: str = "xgboost"
 
 @app.get("/")
@@ -50,10 +60,10 @@ async def root():
 async def health():
     return {"status": "healthy", "models_loaded": len(models)}
 
-@app.get("/predict", response_model=PredictionResponse)
+@app.get("/predict", response_model=ForecastResponse)
 async def predict():
     """
-    Predict weather for the next day using the latest data from the database.
+    Predict weather for the next 7 days using the latest data from the database.
     """
     try:
         # Get latest data
@@ -81,27 +91,39 @@ async def predict():
         feature_cols = [c for c in feature_cols if c in df.columns]
         X = df[feature_cols].iloc[0:1]  # Single row
 
-        # Make predictions
-        predictions = {}
-
-        for target in ['temp_min', 'temp_max', 'wind_speed', 'humidity', 'rain_prob']:
-            model_key = f"xgb_{target}"
-            if model_key in models:
-                pred = models[model_key].predict(X)[0]
-
-                # For rain_prob, get probability
-                if target == 'rain_prob':
-                    pred = models[model_key].predict_proba(X)[0][1]
-
-                predictions[target] = float(pred)
-
-        # Get the date for which we're predicting (tomorrow)
+        # Make predictions for 7 days
+        forecast = []
         latest_date = pd.to_datetime(df['date'].iloc[0])
-        next_date = latest_date + pd.Timedelta(days=1)
 
-        return PredictionResponse(
-            date=next_date.strftime("%Y-%m-%d"),
-            predictions=predictions,
+        for i in range(1, 8):
+            day_preds = {}
+            for target in ['temp_min', 'temp_max', 'wind_speed', 'humidity', 'rain_prob']:
+                name = f"{target}_day_{i}"
+                model_key = f"xgb_{name}"
+
+                val = 0.0
+                if model_key in models:
+                    pred = models[model_key].predict(X)[0]
+                    # For rain_prob, get probability
+                    if target == 'rain_prob':
+                        pred = models[model_key].predict_proba(X)[0][1]
+                    val = float(pred)
+
+                day_preds[target] = val
+
+            next_date = latest_date + pd.Timedelta(days=i)
+
+            forecast.append(DailyPrediction(
+                date=next_date.strftime("%Y-%m-%d"),
+                temp_min=day_preds.get('temp_min', 0.0),
+                temp_max=day_preds.get('temp_max', 0.0),
+                wind_speed=day_preds.get('wind_speed', 0.0),
+                humidity=day_preds.get('humidity', 0.0),
+                rain_prob=day_preds.get('rain_prob', 0.0)
+            ))
+
+        return ForecastResponse(
+            forecast=forecast,
             model_type="xgboost"
         )
 
