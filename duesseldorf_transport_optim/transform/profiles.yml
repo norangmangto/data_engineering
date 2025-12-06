@@ -1,0 +1,11 @@
+duesseldorf_transport:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: '../data/processed/transport.duckdb'
+      extensions:
+        - parquet
+      # optional: install/load spatial if we want to use ST_ functions
+      # settings:
+      #   disabled_filesystems: ''

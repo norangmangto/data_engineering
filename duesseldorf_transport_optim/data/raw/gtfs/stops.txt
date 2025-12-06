@@ -1,0 +1,5 @@
+stop_id,stop_name,stop_lat,stop_lon
+S1,Düsseldorf Hbf,51.2198,6.7943
+S2,Heinrich-Heine-Allee,51.2255,6.7776
+S3,Bilk S,51.2064,6.7725
+S4,Uni Ost/Botanischer Garten,51.1895,6.8021

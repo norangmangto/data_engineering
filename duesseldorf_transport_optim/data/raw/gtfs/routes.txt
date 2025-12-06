@@ -1,0 +1,3 @@
+route_id,route_short_name,route_long_name,route_type
+R1,U79,Uni - Hbf - Duisburg,1
+R2,707,Unterrath - Hbf - Uni,0

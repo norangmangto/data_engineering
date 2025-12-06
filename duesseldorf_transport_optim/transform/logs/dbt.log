@@ -1,0 +1,1071 @@
+[0m23:40:39.215402 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10cc7b230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e24bc50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e24bed0>]}
+
+
+============================== 23:40:39.230102 | de3405dd-c32f-4efa-a162-006a97ee3840 ==============================
+[0m23:40:39.230102 [info ] [MainThread]: Running with dbt=1.10.15
+[0m23:40:39.230361 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform', 'write_json': 'True', 'quiet': 'False', 'fail_fast': 'False', 'version_check': 'True', 'indirect_selection': 'eager', 'invocation_command': 'dbt run', 'log_cache_events': 'False', 'printer_width': '80', 'partial_parse': 'True', 'static_parser': 'True', 'introspect': 'True', 'use_colors': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'log_format': 'default', 'warn_error': 'None', 'cache_selected_only': 'False', 'log_path': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/logs', 'target_path': 'None', 'send_anonymous_usage_stats': 'True', 'empty': 'False', 'no_print': 'None', 'debug': 'False', 'use_experimental_parser': 'False'}
+[0m23:40:39.846005 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d4d09d0>]}
+[0m23:40:39.863825 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e39a470>]}
+[0m23:40:39.865030 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m23:40:39.900077 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m23:40:39.900407 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m23:40:39.900549 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e36ed50>]}
+[0m23:40:40.237889 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e1ca7b0>]}
+[0m23:40:40.254932 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/manifest.json
+[0m23:40:40.255768 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/semantic_manifest.json
+[0m23:40:40.288157 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e3334d0>]}
+[0m23:40:40.288362 [info ] [MainThread]: Found 6 models, 468 macros
+[0m23:40:40.288492 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'de3405dd-c32f-4efa-a162-006a97ee3840', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e783110>]}
+[0m23:40:40.289201 [info ] [MainThread]: 
+[0m23:40:40.289324 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:40:40.289419 [info ] [MainThread]: 
+[0m23:40:40.289589 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m23:40:40.291230 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_transport'
+[0m23:40:40.326431 [debug] [ThreadPool]: Using duckdb connection "list_transport"
+[0m23:40:40.326616 [debug] [ThreadPool]: On list_transport: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"transport"'
+    
+  
+  
+[0m23:40:40.326710 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:40:40.329758 [debug] [ThreadPool]: DuckDB adapter: Error running SQL: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"transport"'
+    
+  
+  
+[0m23:40:40.329893 [debug] [ThreadPool]: DuckDB adapter: Rolling back transaction.
+[0m23:40:40.330214 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:40:40.330355 [debug] [MainThread]: Connection 'list_transport' was properly closed.
+[0m23:40:40.330471 [info ] [MainThread]: 
+[0m23:40:40.330584 [info ] [MainThread]: Finished running  in 0 hours 0 minutes and 0.04 seconds (0.04s).
+[0m23:40:40.330752 [error] [MainThread]: Encountered an error:
+Runtime Error
+  IO Error: Cannot open file "/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/../data/processed/transport.duckdb": No such file or directory
+[0m23:40:40.330986 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": false, "command_wall_clock_time": 1.1417915, "process_in_blocks": "0", "process_kernel_time": 0.313425, "process_mem_max_rss": "165330944", "process_out_blocks": "0", "process_user_time": 1.596102}
+[0m23:40:40.331153 [debug] [MainThread]: Command `dbt run` failed at 23:40:40.331121 after 1.14 seconds
+[0m23:40:40.331287 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10e1696d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eb8ce10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10eb8cf70>]}
+[0m23:40:40.331418 [debug] [MainThread]: Flushing usage events
+[0m23:40:40.792137 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:40:51.736975 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c674590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d4bb9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d4bbc50>]}
+
+
+============================== 23:40:51.738589 | 52dc0798-b0d2-4e8f-9dd6-0a12cb096eda ==============================
+[0m23:40:51.738589 [info ] [MainThread]: Running with dbt=1.10.15
+[0m23:40:51.738831 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'debug': 'False', 'profiles_dir': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform', 'empty': 'False', 'printer_width': '80', 'introspect': 'True', 'log_cache_events': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'warn_error': 'None', 'cache_selected_only': 'False', 'target_path': 'None', 'indirect_selection': 'eager', 'log_path': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/logs', 'use_experimental_parser': 'False', 'quiet': 'False', 'partial_parse': 'True', 'write_json': 'True', 'fail_fast': 'False', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'no_print': 'None', 'static_parser': 'True'}
+[0m23:40:51.804326 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c8303e0>]}
+[0m23:40:51.822805 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d579e10>]}
+[0m23:40:51.823567 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m23:40:51.856841 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m23:40:51.885429 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m23:40:51.885600 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m23:40:51.894095 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d914750>]}
+[0m23:40:51.911807 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/manifest.json
+[0m23:40:51.912628 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/semantic_manifest.json
+[0m23:40:51.917446 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d542210>]}
+[0m23:40:51.917616 [info ] [MainThread]: Found 6 models, 468 macros
+[0m23:40:51.917738 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d5fef90>]}
+[0m23:40:51.918504 [info ] [MainThread]: 
+[0m23:40:51.918634 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:40:51.918729 [info ] [MainThread]: 
+[0m23:40:51.918908 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m23:40:51.920494 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_transport'
+[0m23:40:51.938557 [debug] [ThreadPool]: Using duckdb connection "list_transport"
+[0m23:40:51.938709 [debug] [ThreadPool]: On list_transport: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"transport"'
+    
+  
+  
+[0m23:40:51.938803 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:40:51.944170 [debug] [ThreadPool]: SQL status: OK in 0.005 seconds
+[0m23:40:51.944640 [debug] [ThreadPool]: On list_transport: Close
+[0m23:40:51.944866 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_transport, now create_transport_main)
+[0m23:40:51.945005 [debug] [ThreadPool]: Creating schema "database: "transport"
+schema: "main"
+"
+[0m23:40:51.947164 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:40:51.947271 [debug] [ThreadPool]: On create_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "create_transport_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='transport'
+        and type='sqlite'
+    
+  
+[0m23:40:51.947354 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:40:51.947641 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:40:51.948054 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:40:51.948141 [debug] [ThreadPool]: On create_transport_main: BEGIN
+[0m23:40:51.948269 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:40:51.948353 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:40:51.948439 [debug] [ThreadPool]: On create_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "create_transport_main"} */
+
+    
+    
+        create schema if not exists "transport"."main"
+    
+[0m23:40:51.948659 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:40:51.948983 [debug] [ThreadPool]: On create_transport_main: COMMIT
+[0m23:40:51.949085 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:40:51.949169 [debug] [ThreadPool]: On create_transport_main: COMMIT
+[0m23:40:51.949345 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:40:51.949492 [debug] [ThreadPool]: On create_transport_main: Close
+[0m23:40:51.949936 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_transport_main, now list_transport_main)
+[0m23:40:51.951679 [debug] [ThreadPool]: Using duckdb connection "list_transport_main"
+[0m23:40:51.951774 [debug] [ThreadPool]: On list_transport_main: BEGIN
+[0m23:40:51.951847 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:40:51.951991 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:40:51.952300 [debug] [ThreadPool]: Using duckdb connection "list_transport_main"
+[0m23:40:51.952387 [debug] [ThreadPool]: On list_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport_main"} */
+select
+      'transport' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'transport'
+  
+[0m23:40:51.956189 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m23:40:51.956563 [debug] [ThreadPool]: On list_transport_main: ROLLBACK
+[0m23:40:51.956946 [debug] [ThreadPool]: Failed to rollback 'list_transport_main'
+[0m23:40:51.957035 [debug] [ThreadPool]: On list_transport_main: Close
+[0m23:40:51.957214 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dc83ba0>]}
+[0m23:40:51.957381 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:40:51.957468 [debug] [MainThread]: On master: BEGIN
+[0m23:40:51.957546 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:40:51.957706 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:40:51.957786 [debug] [MainThread]: On master: COMMIT
+[0m23:40:51.957860 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:40:51.957934 [debug] [MainThread]: On master: COMMIT
+[0m23:40:51.958064 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:40:51.958145 [debug] [MainThread]: On master: Close
+[0m23:40:51.959301 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_accidents
+[0m23:40:51.959490 [info ] [Thread-1 (]: 1 of 6 START sql view model main.stg_accidents ................................. [RUN]
+[0m23:40:51.959669 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_transport_main, now model.duesseldorf_transport.stg_accidents)
+[0m23:40:51.959782 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_accidents
+[0m23:40:51.961763 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.962160 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_accidents
+[0m23:40:51.972593 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.973106 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.973212 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: BEGIN
+[0m23:40:51.973309 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:51.973541 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.973631 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.973725 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+  
+  create view "transport"."main"."stg_accidents__dbt_tmp" as (
+    with source as (
+    select * from read_csv_auto('../data/raw/accidents/Unfallorte.csv')
+)
+select
+    UJAHR as year,
+    UMONAT as month,
+    USTUNDE as hour,
+    WOCHENTAG as weekday,
+    UKATEGORIE as category,
+    XGCSWGS84 as lon,
+    YGCSWGS84 as lat
+from source
+where lon is not null and lat is not null
+  );
+
+[0m23:40:51.976164 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m23:40:51.978132 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.978245 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+alter view "transport"."main"."stg_accidents__dbt_tmp" rename to "stg_accidents"
+[0m23:40:51.978489 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.981617 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: COMMIT
+[0m23:40:51.981737 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.981832 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: COMMIT
+[0m23:40:51.982274 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.983762 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:40:51.983870 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+      drop view if exists "transport"."main"."stg_accidents__dbt_backup" cascade
+    
+[0m23:40:51.984043 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.984886 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: Close
+[0m23:40:51.985889 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10db0a090>]}
+[0m23:40:51.986119 [info ] [Thread-1 (]: 1 of 6 OK created sql view model main.stg_accidents ............................ [[32mOK[0m in 0.03s]
+[0m23:40:51.986324 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_accidents
+[0m23:40:51.986461 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:40:51.986634 [info ] [Thread-1 (]: 2 of 6 START sql view model main.stg_gtfs_routes ............................... [RUN]
+[0m23:40:51.986782 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_accidents, now model.duesseldorf_transport.stg_gtfs_routes)
+[0m23:40:51.986898 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:40:51.987401 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.987591 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:40:51.988650 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.988846 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.988941 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: BEGIN
+[0m23:40:51.989033 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:51.989209 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.989310 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.989412 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+  
+  create view "transport"."main"."stg_gtfs_routes__dbt_tmp" as (
+    with source as (
+    select * from read_csv_auto('../data/raw/gtfs/routes.txt')
+)
+select * from source
+  );
+
+[0m23:40:51.990249 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:40:51.991037 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.991137 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+alter view "transport"."main"."stg_gtfs_routes__dbt_tmp" rename to "stg_gtfs_routes"
+[0m23:40:51.991305 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.991691 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: COMMIT
+[0m23:40:51.991786 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.991874 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: COMMIT
+[0m23:40:51.992065 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.994361 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:40:51.994494 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_routes__dbt_backup" cascade
+    
+[0m23:40:51.994687 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.995267 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: Close
+[0m23:40:51.995487 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10dadac50>]}
+[0m23:40:51.995715 [info ] [Thread-1 (]: 2 of 6 OK created sql view model main.stg_gtfs_routes .......................... [[32mOK[0m in 0.01s]
+[0m23:40:51.995905 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:40:51.996035 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:40:51.996204 [info ] [Thread-1 (]: 3 of 6 START sql view model main.stg_gtfs_stop_times ........................... [RUN]
+[0m23:40:51.996343 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_routes, now model.duesseldorf_transport.stg_gtfs_stop_times)
+[0m23:40:51.996454 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:40:51.996977 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:51.997255 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:40:51.998130 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:51.998346 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:51.998462 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: BEGIN
+[0m23:40:51.998564 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:51.998786 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:51.998898 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:51.999006 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+  
+  create view "transport"."main"."stg_gtfs_stop_times__dbt_tmp" as (
+    with source as (
+    select * from read_csv_auto('../data/raw/gtfs/stop_times.txt')
+)
+select * from source
+  );
+
+[0m23:40:51.999963 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:40:52.024972 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:52.025148 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+alter view "transport"."main"."stg_gtfs_stop_times__dbt_tmp" rename to "stg_gtfs_stop_times"
+[0m23:40:52.025429 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.025871 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: COMMIT
+[0m23:40:52.025977 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:52.026070 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: COMMIT
+[0m23:40:52.026353 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.026962 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:40:52.027064 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_stop_times__dbt_backup" cascade
+    
+[0m23:40:52.027242 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.027629 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: Close
+[0m23:40:52.027800 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10de7c7d0>]}
+[0m23:40:52.028002 [info ] [Thread-1 (]: 3 of 6 OK created sql view model main.stg_gtfs_stop_times ...................... [[32mOK[0m in 0.03s]
+[0m23:40:52.028193 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:40:52.028305 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:40:52.028460 [info ] [Thread-1 (]: 4 of 6 START sql view model main.stg_gtfs_stops ................................ [RUN]
+[0m23:40:52.028602 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_stop_times, now model.duesseldorf_transport.stg_gtfs_stops)
+[0m23:40:52.028703 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:40:52.029274 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.029554 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:40:52.030393 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.030588 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.030681 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: BEGIN
+[0m23:40:52.030770 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:52.030933 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.031032 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.031140 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+  
+  create view "transport"."main"."stg_gtfs_stops__dbt_tmp" as (
+    with source as (
+    select * from read_csv_auto('../data/raw/gtfs/stops.txt')
+)
+select
+    stop_id,
+    stop_name,
+    stop_lat,
+    stop_lon
+from source
+  );
+
+[0m23:40:52.031960 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:40:52.032740 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.032842 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+alter view "transport"."main"."stg_gtfs_stops__dbt_tmp" rename to "stg_gtfs_stops"
+[0m23:40:52.033137 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.033537 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: COMMIT
+[0m23:40:52.033639 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.033729 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: COMMIT
+[0m23:40:52.033936 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.034556 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:40:52.034696 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_stops__dbt_backup" cascade
+    
+[0m23:40:52.035079 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.035574 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: Close
+[0m23:40:52.035765 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d721450>]}
+[0m23:40:52.035993 [info ] [Thread-1 (]: 4 of 6 OK created sql view model main.stg_gtfs_stops ........................... [[32mOK[0m in 0.01s]
+[0m23:40:52.036333 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:40:52.036461 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:40:52.036643 [info ] [Thread-1 (]: 5 of 6 START sql view model main.stg_gtfs_trips ................................ [RUN]
+[0m23:40:52.036821 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_stops, now model.duesseldorf_transport.stg_gtfs_trips)
+[0m23:40:52.036937 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:40:52.037423 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.037659 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:40:52.038720 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.038921 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.039021 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: BEGIN
+[0m23:40:52.039112 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:52.039299 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.039402 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.039506 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+  
+  create view "transport"."main"."stg_gtfs_trips__dbt_tmp" as (
+    with source as (
+    select * from read_csv_auto('../data/raw/gtfs/trips.txt')
+)
+select * from source
+  );
+
+[0m23:40:52.040288 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:40:52.041102 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.041212 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+alter view "transport"."main"."stg_gtfs_trips__dbt_tmp" rename to "stg_gtfs_trips"
+[0m23:40:52.041391 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.041791 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: COMMIT
+[0m23:40:52.041903 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.042006 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: COMMIT
+[0m23:40:52.042220 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.043037 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:40:52.043154 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_trips__dbt_backup" cascade
+    
+[0m23:40:52.043331 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.043694 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: Close
+[0m23:40:52.043840 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10deb0d70>]}
+[0m23:40:52.044015 [info ] [Thread-1 (]: 5 of 6 OK created sql view model main.stg_gtfs_trips ........................... [[32mOK[0m in 0.01s]
+[0m23:40:52.044183 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:40:52.044301 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.int_network_risk
+[0m23:40:52.044455 [info ] [Thread-1 (]: 6 of 6 START sql table model main.int_network_risk ............................. [RUN]
+[0m23:40:52.044581 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_trips, now model.duesseldorf_transport.int_network_risk)
+[0m23:40:52.044693 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.int_network_risk
+[0m23:40:52.045594 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.045861 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.int_network_risk
+[0m23:40:52.052304 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.052869 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.053005 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: BEGIN
+[0m23:40:52.053113 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:40:52.053326 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.053427 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.053543 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."int_network_risk__dbt_tmp"
+  
+    as (
+      with stops as (
+    select * from "transport"."main"."stg_gtfs_stops"
+),
+
+accidents as (
+    select * from "transport"."main"."stg_accidents"
+),
+
+stop_risk as (
+    select
+        s.stop_id,
+        s.stop_name,
+        s.stop_lat,
+        s.stop_lon,
+        -- Count accidents within approx 500m (0.005 degrees roughly)
+        count(a.category) as accident_count,
+        -- Weighted score: Category 1 (Fatal) = 5 pts, Cat 2 (Serious) = 3 pts, Cat 3 (Minor) = 1 pt
+        sum(
+            case
+                when a.category = 1 then 5
+                when a.category = 2 then 3
+                else 1
+            end
+        ) as risk_score
+    from stops s
+    left join accidents a
+    on abs(s.stop_lat - a.lat) < 0.005
+    and abs(s.stop_lon - a.lon) < 0.005
+    group by 1, 2, 3, 4
+)
+
+select * from stop_risk
+    );
+  
+  
+[0m23:40:52.056941 [debug] [Thread-1 (]: SQL status: OK in 0.003 seconds
+[0m23:40:52.057964 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.058074 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+alter table "transport"."main"."int_network_risk__dbt_tmp" rename to "int_network_risk"
+[0m23:40:52.058270 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.059931 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: COMMIT
+[0m23:40:52.060044 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.060138 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: COMMIT
+[0m23:40:52.060394 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.061038 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:40:52.061139 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+      drop table if exists "transport"."main"."int_network_risk__dbt_backup" cascade
+    
+[0m23:40:52.061326 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:40:52.061804 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: Close
+[0m23:40:52.061996 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '52dc0798-b0d2-4e8f-9dd6-0a12cb096eda', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10d3ca030>]}
+[0m23:40:52.062198 [info ] [Thread-1 (]: 6 of 6 OK created sql table model main.int_network_risk ........................ [[32mOK[0m in 0.02s]
+[0m23:40:52.062375 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.int_network_risk
+[0m23:40:52.062836 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:40:52.062958 [debug] [MainThread]: On master: BEGIN
+[0m23:40:52.063043 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:40:52.063199 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:40:52.063288 [debug] [MainThread]: On master: COMMIT
+[0m23:40:52.063374 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:40:52.063454 [debug] [MainThread]: On master: COMMIT
+[0m23:40:52.063596 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:40:52.063699 [debug] [MainThread]: On master: Close
+[0m23:40:52.063818 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:40:52.063899 [debug] [MainThread]: Connection 'model.duesseldorf_transport.int_network_risk' was properly closed.
+[0m23:40:52.064002 [info ] [MainThread]: 
+[0m23:40:52.064103 [info ] [MainThread]: Finished running 1 table model, 5 view models in 0 hours 0 minutes and 0.15 seconds (0.15s).
+[0m23:40:52.064474 [debug] [MainThread]: Command end result
+[0m23:40:52.071202 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/manifest.json
+[0m23:40:52.071875 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/semantic_manifest.json
+[0m23:40:52.073842 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/run_results.json
+[0m23:40:52.073937 [info ] [MainThread]: 
+[0m23:40:52.074057 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:40:52.074153 [info ] [MainThread]: 
+[0m23:40:52.074256 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
+[0m23:40:52.074482 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.3633882, "process_in_blocks": "0", "process_kernel_time": 0.108649, "process_mem_max_rss": "160006144", "process_out_blocks": "0", "process_user_time": 0.690126}
+[0m23:40:52.074632 [debug] [MainThread]: Command `dbt run` succeeded at 23:40:52.074603 after 0.36 seconds
+[0m23:40:52.074747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb4d5b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bfce750>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10ce9d850>]}
+[0m23:40:52.074855 [debug] [MainThread]: Flushing usage events
+[0m23:40:52.587140 [debug] [MainThread]: An error was encountered while trying to flush usage events
+[0m23:41:49.710200 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a438590>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b27f9d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b27fc50>]}
+
+
+============================== 23:41:49.712031 | 1c649ca5-d6f3-4148-9135-ffff5f202064 ==============================
+[0m23:41:49.712031 [info ] [MainThread]: Running with dbt=1.10.15
+[0m23:41:49.712270 [debug] [MainThread]: running dbt with arguments {'log_format': 'default', 'write_json': 'True', 'no_print': 'None', 'log_path': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/logs', 'profiles_dir': '/Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform', 'printer_width': '80', 'indirect_selection': 'eager', 'version_check': 'True', 'debug': 'False', 'introspect': 'True', 'send_anonymous_usage_stats': 'True', 'use_experimental_parser': 'False', 'static_parser': 'True', 'log_cache_events': 'False', 'quiet': 'False', 'empty': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'use_colors': 'True', 'cache_selected_only': 'False', 'target_path': 'None', 'invocation_command': 'dbt run', 'warn_error': 'None', 'partial_parse': 'True', 'fail_fast': 'False'}
+[0m23:41:49.777142 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10a5f43e0>]}
+[0m23:41:49.794803 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b342360>]}
+[0m23:41:49.795534 [info ] [MainThread]: Registered adapter: duckdb=1.10.0
+[0m23:41:49.828478 [debug] [MainThread]: checksum: 14a228079bd6df63ba81633f9a3cf44ecfaa31056ac397c602753ec895dbf885, vars: {}, profile: , target: , version: 1.10.15
+[0m23:41:49.850423 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m23:41:49.850657 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b34f150>]}
+[0m23:41:50.164449 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10349b980>]}
+[0m23:41:50.181535 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/manifest.json
+[0m23:41:50.182213 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/semantic_manifest.json
+[0m23:41:50.186880 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b8b6350>]}
+[0m23:41:50.187046 [info ] [MainThread]: Found 6 models, 468 macros
+[0m23:41:50.187169 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b798600>]}
+[0m23:41:50.187850 [info ] [MainThread]: 
+[0m23:41:50.187973 [info ] [MainThread]: Concurrency: 1 threads (target='dev')
+[0m23:41:50.188063 [info ] [MainThread]: 
+[0m23:41:50.188227 [debug] [MainThread]: Acquiring new duckdb connection 'master'
+[0m23:41:50.189817 [debug] [ThreadPool]: Acquiring new duckdb connection 'list_transport'
+[0m23:41:50.207067 [debug] [ThreadPool]: Using duckdb connection "list_transport"
+[0m23:41:50.207217 [debug] [ThreadPool]: On list_transport: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport"} */
+
+    
+    select schema_name
+    from system.information_schema.schemata
+    
+    where lower(catalog_name) = '"transport"'
+    
+  
+  
+[0m23:41:50.207313 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m23:41:50.211957 [debug] [ThreadPool]: SQL status: OK in 0.005 seconds
+[0m23:41:50.212403 [debug] [ThreadPool]: On list_transport: Close
+[0m23:41:50.212633 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_transport, now create_transport_main)
+[0m23:41:50.212784 [debug] [ThreadPool]: Creating schema "database: "transport"
+schema: "main"
+"
+[0m23:41:50.214768 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:41:50.214871 [debug] [ThreadPool]: On create_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "create_transport_main"} */
+
+    
+        select type from duckdb_databases()
+        where lower(database_name)='transport'
+        and type='sqlite'
+    
+  
+[0m23:41:50.214953 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:41:50.215226 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:41:50.215602 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:41:50.215686 [debug] [ThreadPool]: On create_transport_main: BEGIN
+[0m23:41:50.215834 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:41:50.215907 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:41:50.215980 [debug] [ThreadPool]: On create_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "create_transport_main"} */
+
+    
+    
+        create schema if not exists "transport"."main"
+    
+[0m23:41:50.216122 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:41:50.216348 [debug] [ThreadPool]: On create_transport_main: COMMIT
+[0m23:41:50.216435 [debug] [ThreadPool]: Using duckdb connection "create_transport_main"
+[0m23:41:50.216517 [debug] [ThreadPool]: On create_transport_main: COMMIT
+[0m23:41:50.216660 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:41:50.216756 [debug] [ThreadPool]: On create_transport_main: Close
+[0m23:41:50.217154 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly create_transport_main, now list_transport_main)
+[0m23:41:50.219098 [debug] [ThreadPool]: Using duckdb connection "list_transport_main"
+[0m23:41:50.219285 [debug] [ThreadPool]: On list_transport_main: BEGIN
+[0m23:41:50.219433 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m23:41:50.219700 [debug] [ThreadPool]: SQL status: OK in 0.000 seconds
+[0m23:41:50.219801 [debug] [ThreadPool]: Using duckdb connection "list_transport_main"
+[0m23:41:50.219904 [debug] [ThreadPool]: On list_transport_main: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "connection_name": "list_transport_main"} */
+select
+      'transport' as database,
+      table_name as name,
+      table_schema as schema,
+      CASE table_type
+        WHEN 'BASE TABLE' THEN 'table'
+        WHEN 'VIEW' THEN 'view'
+        WHEN 'LOCAL TEMPORARY' THEN 'table'
+        END as type
+    from system.information_schema.tables
+    where lower(table_schema) = 'main'
+    and lower(table_catalog) = 'transport'
+  
+[0m23:41:50.223681 [debug] [ThreadPool]: SQL status: OK in 0.004 seconds
+[0m23:41:50.224162 [debug] [ThreadPool]: On list_transport_main: ROLLBACK
+[0m23:41:50.224630 [debug] [ThreadPool]: Failed to rollback 'list_transport_main'
+[0m23:41:50.224742 [debug] [ThreadPool]: On list_transport_main: Close
+[0m23:41:50.225262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b981790>]}
+[0m23:41:50.225419 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:41:50.225501 [debug] [MainThread]: On master: BEGIN
+[0m23:41:50.225577 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m23:41:50.225738 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:41:50.225814 [debug] [MainThread]: On master: COMMIT
+[0m23:41:50.225890 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:41:50.225961 [debug] [MainThread]: On master: COMMIT
+[0m23:41:50.226123 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:41:50.226202 [debug] [MainThread]: On master: Close
+[0m23:41:50.226949 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_accidents
+[0m23:41:50.227117 [info ] [Thread-1 (]: 1 of 6 START sql table model main.stg_accidents ................................ [RUN]
+[0m23:41:50.227283 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_transport_main, now model.duesseldorf_transport.stg_accidents)
+[0m23:41:50.227403 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_accidents
+[0m23:41:50.229580 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.229852 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_accidents
+[0m23:41:50.240917 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.241294 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.241416 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: BEGIN
+[0m23:41:50.241526 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.241800 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.241903 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.242010 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."stg_accidents__dbt_tmp"
+  
+    as (
+      with source as (
+    select * from read_csv_auto('../data/raw/accidents/Unfallorte.csv')
+)
+select
+    UJAHR as year,
+    UMONAT as month,
+    USTUNDE as hour,
+    WOCHENTAG as weekday,
+    UKATEGORIE as category,
+    XGCSWGS84 as lon,
+    YGCSWGS84 as lat
+from source
+where lon is not null and lat is not null
+    );
+  
+  
+[0m23:41:50.244276 [debug] [Thread-1 (]: SQL status: OK in 0.002 seconds
+[0m23:41:50.246219 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.246346 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_accidents'
+  
+[0m23:41:50.246664 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.247149 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.247270 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_accidents'
+  
+[0m23:41:50.247588 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.249721 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.249836 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+alter view "transport"."main"."stg_accidents" rename to "stg_accidents__dbt_backup"
+[0m23:41:50.250048 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.251047 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.251170 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+alter table "transport"."main"."stg_accidents__dbt_tmp" rename to "stg_accidents"
+[0m23:41:50.251388 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.256388 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: COMMIT
+[0m23:41:50.256543 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.256654 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: COMMIT
+[0m23:41:50.257107 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.258785 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_accidents"
+[0m23:41:50.258891 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_accidents"} */
+
+      drop view if exists "transport"."main"."stg_accidents__dbt_backup" cascade
+    
+[0m23:41:50.259151 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.259968 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_accidents: Close
+[0m23:41:50.260756 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb659c0>]}
+[0m23:41:50.260985 [info ] [Thread-1 (]: 1 of 6 OK created sql table model main.stg_accidents ........................... [[32mOK[0m in 0.03s]
+[0m23:41:50.261185 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_accidents
+[0m23:41:50.261315 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:41:50.261519 [info ] [Thread-1 (]: 2 of 6 START sql table model main.stg_gtfs_routes .............................. [RUN]
+[0m23:41:50.261777 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_accidents, now model.duesseldorf_transport.stg_gtfs_routes)
+[0m23:41:50.261893 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:41:50.262588 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.262792 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:41:50.263646 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.263829 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.263923 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: BEGIN
+[0m23:41:50.264012 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.264192 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.264294 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.264400 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."stg_gtfs_routes__dbt_tmp"
+  
+    as (
+      with source as (
+    select * from read_csv_auto('../data/raw/gtfs/routes.txt')
+)
+select * from source
+    );
+  
+  
+[0m23:41:50.265407 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:41:50.265728 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.265841 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_routes'
+  
+[0m23:41:50.266082 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.266435 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.266528 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_routes'
+  
+[0m23:41:50.266752 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.267943 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.268069 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+alter view "transport"."main"."stg_gtfs_routes" rename to "stg_gtfs_routes__dbt_backup"
+[0m23:41:50.268280 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.269025 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.269125 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+alter table "transport"."main"."stg_gtfs_routes__dbt_tmp" rename to "stg_gtfs_routes"
+[0m23:41:50.269303 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.269803 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: COMMIT
+[0m23:41:50.269900 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.269989 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: COMMIT
+[0m23:41:50.270227 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.270813 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_routes"
+[0m23:41:50.270915 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_routes"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_routes__dbt_backup" cascade
+    
+[0m23:41:50.271105 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.271585 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_routes: Close
+[0m23:41:50.271745 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bd8b1b0>]}
+[0m23:41:50.271925 [info ] [Thread-1 (]: 2 of 6 OK created sql table model main.stg_gtfs_routes ......................... [[32mOK[0m in 0.01s]
+[0m23:41:50.272099 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_routes
+[0m23:41:50.272219 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:41:50.272365 [info ] [Thread-1 (]: 3 of 6 START sql table model main.stg_gtfs_stop_times .......................... [RUN]
+[0m23:41:50.272494 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_routes, now model.duesseldorf_transport.stg_gtfs_stop_times)
+[0m23:41:50.272603 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:41:50.273071 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.273273 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:41:50.274076 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.274250 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.274339 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: BEGIN
+[0m23:41:50.274426 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.274583 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.274680 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.274782 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."stg_gtfs_stop_times__dbt_tmp"
+  
+    as (
+      with source as (
+    select * from read_csv_auto('../data/raw/gtfs/stop_times.txt')
+)
+select * from source
+    );
+  
+  
+[0m23:41:50.275712 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:41:50.276053 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.276155 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_stop_times'
+  
+[0m23:41:50.276390 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.276744 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.276843 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_stop_times'
+  
+[0m23:41:50.277064 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.279492 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.279597 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+alter view "transport"."main"."stg_gtfs_stop_times" rename to "stg_gtfs_stop_times__dbt_backup"
+[0m23:41:50.279800 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.280536 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.280641 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+alter table "transport"."main"."stg_gtfs_stop_times__dbt_tmp" rename to "stg_gtfs_stop_times"
+[0m23:41:50.280808 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.281281 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: COMMIT
+[0m23:41:50.281379 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.281465 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: COMMIT
+[0m23:41:50.281683 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.282379 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stop_times"
+[0m23:41:50.282484 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stop_times"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_stop_times__dbt_backup" cascade
+    
+[0m23:41:50.282674 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.283037 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stop_times: Close
+[0m23:41:50.283179 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bbfd750>]}
+[0m23:41:50.283348 [info ] [Thread-1 (]: 3 of 6 OK created sql table model main.stg_gtfs_stop_times ..................... [[32mOK[0m in 0.01s]
+[0m23:41:50.283521 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_stop_times
+[0m23:41:50.283638 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:41:50.283775 [info ] [Thread-1 (]: 4 of 6 START sql table model main.stg_gtfs_stops ............................... [RUN]
+[0m23:41:50.283900 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_stop_times, now model.duesseldorf_transport.stg_gtfs_stops)
+[0m23:41:50.284005 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:41:50.284493 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.284719 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:41:50.285596 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.285804 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.285913 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: BEGIN
+[0m23:41:50.286006 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.286174 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.286274 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.286377 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."stg_gtfs_stops__dbt_tmp"
+  
+    as (
+      with source as (
+    select * from read_csv_auto('../data/raw/gtfs/stops.txt')
+)
+select
+    stop_id,
+    stop_name,
+    stop_lat,
+    stop_lon
+from source
+    );
+  
+  
+[0m23:41:50.287121 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:41:50.287447 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.287546 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_stops'
+  
+[0m23:41:50.287763 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.288106 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.288202 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_stops'
+  
+[0m23:41:50.288428 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.289511 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.289614 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+alter view "transport"."main"."stg_gtfs_stops" rename to "stg_gtfs_stops__dbt_backup"
+[0m23:41:50.289789 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.290541 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.290647 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+alter table "transport"."main"."stg_gtfs_stops__dbt_tmp" rename to "stg_gtfs_stops"
+[0m23:41:50.290809 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.291270 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: COMMIT
+[0m23:41:50.291364 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.291451 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: COMMIT
+[0m23:41:50.291661 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.292373 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_stops"
+[0m23:41:50.292476 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_stops"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_stops__dbt_backup" cascade
+    
+[0m23:41:50.292663 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.293011 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_stops: Close
+[0m23:41:50.293148 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b3a6740>]}
+[0m23:41:50.293314 [info ] [Thread-1 (]: 4 of 6 OK created sql table model main.stg_gtfs_stops .......................... [[32mOK[0m in 0.01s]
+[0m23:41:50.293483 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_stops
+[0m23:41:50.293603 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:41:50.293782 [info ] [Thread-1 (]: 5 of 6 START sql table model main.stg_gtfs_trips ............................... [RUN]
+[0m23:41:50.293930 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_stops, now model.duesseldorf_transport.stg_gtfs_trips)
+[0m23:41:50.294045 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:41:50.294466 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.294638 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:41:50.295458 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.295637 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.295737 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: BEGIN
+[0m23:41:50.295834 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.295981 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.296077 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.296178 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."stg_gtfs_trips__dbt_tmp"
+  
+    as (
+      with source as (
+    select * from read_csv_auto('../data/raw/gtfs/trips.txt')
+)
+select * from source
+    );
+  
+  
+[0m23:41:50.296990 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:41:50.297291 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.297401 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_trips'
+  
+[0m23:41:50.297643 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.297985 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.298081 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'stg_gtfs_trips'
+  
+[0m23:41:50.298299 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.299328 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.299432 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+alter view "transport"."main"."stg_gtfs_trips" rename to "stg_gtfs_trips__dbt_backup"
+[0m23:41:50.299601 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.300316 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.300426 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+alter table "transport"."main"."stg_gtfs_trips__dbt_tmp" rename to "stg_gtfs_trips"
+[0m23:41:50.300592 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.301060 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: COMMIT
+[0m23:41:50.301167 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.301260 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: COMMIT
+[0m23:41:50.301459 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.302194 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.stg_gtfs_trips"
+[0m23:41:50.302304 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.stg_gtfs_trips"} */
+
+      drop view if exists "transport"."main"."stg_gtfs_trips__dbt_backup" cascade
+    
+[0m23:41:50.302494 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.302847 [debug] [Thread-1 (]: On model.duesseldorf_transport.stg_gtfs_trips: Close
+[0m23:41:50.302985 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bc02b70>]}
+[0m23:41:50.303148 [info ] [Thread-1 (]: 5 of 6 OK created sql table model main.stg_gtfs_trips .......................... [[32mOK[0m in 0.01s]
+[0m23:41:50.303315 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.stg_gtfs_trips
+[0m23:41:50.303437 [debug] [Thread-1 (]: Began running node model.duesseldorf_transport.int_network_risk
+[0m23:41:50.303572 [info ] [Thread-1 (]: 6 of 6 START sql table model main.int_network_risk ............................. [RUN]
+[0m23:41:50.303699 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.duesseldorf_transport.stg_gtfs_trips, now model.duesseldorf_transport.int_network_risk)
+[0m23:41:50.303805 [debug] [Thread-1 (]: Began compiling node model.duesseldorf_transport.int_network_risk
+[0m23:41:50.304711 [debug] [Thread-1 (]: Writing injected SQL for node "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.304905 [debug] [Thread-1 (]: Began executing node model.duesseldorf_transport.int_network_risk
+[0m23:41:50.305712 [debug] [Thread-1 (]: Writing runtime sql for node "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.305902 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.305996 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: BEGIN
+[0m23:41:50.306083 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m23:41:50.306240 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.306342 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.306456 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+  
+    
+    
+
+    create  table
+      "transport"."main"."int_network_risk__dbt_tmp"
+  
+    as (
+      with stops as (
+    select * from "transport"."main"."stg_gtfs_stops"
+),
+
+accidents as (
+    select * from "transport"."main"."stg_accidents"
+),
+
+stop_risk as (
+    select
+        s.stop_id,
+        s.stop_name,
+        s.stop_lat,
+        s.stop_lon,
+        -- Count accidents within approx 500m (0.005 degrees roughly)
+        count(a.category) as accident_count,
+        -- Weighted score: Category 1 (Fatal) = 5 pts, Cat 2 (Serious) = 3 pts, Cat 3 (Minor) = 1 pt
+        sum(
+            case
+                when a.category = 1 then 5
+                when a.category = 2 then 3
+                else 1
+            end
+        ) as risk_score
+    from stops s
+    left join accidents a
+    on abs(s.stop_lat - a.lat) < 0.005
+    and abs(s.stop_lon - a.lon) < 0.005
+    group by 1, 2, 3, 4
+)
+
+select * from stop_risk
+    );
+  
+  
+[0m23:41:50.307824 [debug] [Thread-1 (]: SQL status: OK in 0.001 seconds
+[0m23:41:50.308145 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.308248 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+    SELECT index_name
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'int_network_risk'
+  
+[0m23:41:50.308464 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.308808 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.308904 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+    SELECT COUNT(*) as remaining_indexes
+    FROM duckdb_indexes()
+    WHERE schema_name = 'main'
+      AND table_name = 'int_network_risk'
+  
+[0m23:41:50.309121 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.310238 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.310372 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+alter table "transport"."main"."int_network_risk" rename to "int_network_risk__dbt_backup"
+[0m23:41:50.310575 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.311388 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.311505 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+alter table "transport"."main"."int_network_risk__dbt_tmp" rename to "int_network_risk"
+[0m23:41:50.311681 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.312165 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: COMMIT
+[0m23:41:50.312279 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.312376 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: COMMIT
+[0m23:41:50.312615 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.313335 [debug] [Thread-1 (]: Using duckdb connection "model.duesseldorf_transport.int_network_risk"
+[0m23:41:50.313438 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: /* {"app": "dbt", "dbt_version": "1.10.15", "profile_name": "duesseldorf_transport", "target_name": "dev", "node_id": "model.duesseldorf_transport.int_network_risk"} */
+
+      drop table if exists "transport"."main"."int_network_risk__dbt_backup" cascade
+    
+[0m23:41:50.313657 [debug] [Thread-1 (]: SQL status: OK in 0.000 seconds
+[0m23:41:50.314013 [debug] [Thread-1 (]: On model.duesseldorf_transport.int_network_risk: Close
+[0m23:41:50.314166 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': '1c649ca5-d6f3-4148-9135-ffff5f202064', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bc02a50>]}
+[0m23:41:50.314340 [info ] [Thread-1 (]: 6 of 6 OK created sql table model main.int_network_risk ........................ [[32mOK[0m in 0.01s]
+[0m23:41:50.314510 [debug] [Thread-1 (]: Finished running node model.duesseldorf_transport.int_network_risk
+[0m23:41:50.314978 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:41:50.315079 [debug] [MainThread]: On master: BEGIN
+[0m23:41:50.315154 [debug] [MainThread]: Opening a new connection, currently in state closed
+[0m23:41:50.315290 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:41:50.315375 [debug] [MainThread]: On master: COMMIT
+[0m23:41:50.315456 [debug] [MainThread]: Using duckdb connection "master"
+[0m23:41:50.315533 [debug] [MainThread]: On master: COMMIT
+[0m23:41:50.315662 [debug] [MainThread]: SQL status: OK in 0.000 seconds
+[0m23:41:50.315764 [debug] [MainThread]: On master: Close
+[0m23:41:50.315888 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m23:41:50.315979 [debug] [MainThread]: Connection 'model.duesseldorf_transport.int_network_risk' was properly closed.
+[0m23:41:50.316095 [info ] [MainThread]: 
+[0m23:41:50.316193 [info ] [MainThread]: Finished running 6 table models in 0 hours 0 minutes and 0.13 seconds (0.13s).
+[0m23:41:50.316573 [debug] [MainThread]: Command end result
+[0m23:41:50.322944 [debug] [MainThread]: Wrote artifact WritableManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/manifest.json
+[0m23:41:50.323564 [debug] [MainThread]: Wrote artifact SemanticManifest to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/semantic_manifest.json
+[0m23:41:50.325485 [debug] [MainThread]: Wrote artifact RunExecutionResult to /Users/norangmangto/works/data_engineering/duesseldorf_transport_optim/transform/target/run_results.json
+[0m23:41:50.325577 [info ] [MainThread]: 
+[0m23:41:50.325691 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m23:41:50.325784 [info ] [MainThread]: 
+[0m23:41:50.325881 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 NO-OP=0 TOTAL=6
+[0m23:41:50.326094 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 0.63902026, "process_in_blocks": "0", "process_kernel_time": 0.106573, "process_mem_max_rss": "164642816", "process_out_blocks": "0", "process_user_time": 0.967928}
+[0m23:41:50.326237 [debug] [MainThread]: Command `dbt run` succeeded at 23:41:50.326210 after 0.64 seconds
+[0m23:41:50.326357 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10b0c03b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bdab950>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bdabe90>]}
+[0m23:41:50.326462 [debug] [MainThread]: Flushing usage events
+[0m23:41:50.854968 [debug] [MainThread]: An error was encountered while trying to flush usage events
