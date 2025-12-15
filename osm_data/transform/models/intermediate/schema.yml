@@ -1,0 +1,84 @@
+version: 2
+
+models:
+  - name: int_cities_enriched
+    description: Enriched cities with additional calculated fields
+    columns:
+      - name: osm_id
+        description: OpenStreetMap ID
+        tests:
+          - not_null
+          - unique
+      - name: osm_type
+        description: Type of OSM element
+      - name: name
+        description: City name
+      - name: country
+        description: Country name
+      - name: population
+        description: Population count
+      - name: wikidata
+        description: Wikidata ID
+      - name: wikipedia
+        description: Wikipedia reference
+      - name: latitude
+        description: Latitude coordinate
+      - name: longitude
+        description: Longitude coordinate
+      - name: geometry
+        description: Spatial geometry object
+      - name: geometry_wkt
+        description: Geometry in WKT format
+      - name: city_size_category
+        description: Category based on population size
+      - name: has_coordinates
+        description: Boolean indicating if coordinates are available
+      - name: has_geometry
+        description: Boolean indicating if geometry is available
+      - name: loaded_at
+        description: Timestamp when data was loaded
+
+  - name: int_countries_enriched
+    description: Enriched countries with additional calculated fields and ISO codes
+    columns:
+      - name: osm_id
+        description: OpenStreetMap ID
+        tests:
+          - not_null
+          - unique
+      - name: osm_type
+        description: Type of OSM element (relation)
+      - name: name
+        description: Country name
+      - name: iso3166_1_alpha2
+        description: ISO 3166-1 alpha-2 code
+      - name: iso3166_1_alpha3
+        description: ISO 3166-1 alpha-3 code
+      - name: population
+        description: Population count
+      - name: capital
+        description: Capital city name
+      - name: wikidata
+        description: Wikidata ID
+      - name: wikipedia
+        description: Wikipedia reference
+      - name: official_name
+        description: Official country name
+      - name: latitude
+        description: Latitude coordinate
+      - name: longitude
+        description: Longitude coordinate
+      - name: geometry
+        description: Spatial geometry object (polygon)
+      - name: geometry_wkt
+        description: Geometry in WKT format
+      - name: population_category
+        description: Category based on population size
+      - name: has_coordinates
+        description: Boolean indicating if coordinates are available
+      - name: has_geometry
+        description: Boolean indicating if geometry polygon is available
+      - name: has_iso_codes
+        description: Boolean indicating if ISO codes are available
+      - name: loaded_at
+        description: Timestamp when data was loaded

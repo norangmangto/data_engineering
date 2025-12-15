@@ -1,0 +1,10 @@
+osm_data:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ../data/processed/osm_data.duckdb
+      schema: main
+      threads: 4
+      extensions:
+        - spatial

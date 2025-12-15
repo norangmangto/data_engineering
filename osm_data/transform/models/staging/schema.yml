@@ -1,0 +1,140 @@
+version: 2
+
+sources:
+  - name: osm
+    description: Raw OpenStreetMap data
+    tables:
+      - name: raw_cities
+        description: Raw cities data from OpenStreetMap
+        columns:
+          - name: osm_id
+            description: OpenStreetMap ID
+            tests:
+              - not_null
+          - name: osm_type
+            description: Type of OSM element (node, way, relation)
+          - name: name
+            description: City name
+            tests:
+              - not_null
+          - name: country
+            description: Country name
+          - name: population
+            description: Population as string
+          - name: wikidata
+            description: Wikidata ID
+          - name: wikipedia
+            description: Wikipedia reference
+          - name: latitude
+            description: Latitude coordinate
+          - name: longitude
+            description: Longitude coordinate
+          - name: geometry_wkt
+            description: Geometry in WKT format
+          - name: loaded_at
+            description: Timestamp when data was loaded
+      
+      - name: raw_countries
+        description: Raw countries data from OpenStreetMap
+        columns:
+          - name: osm_id
+            description: OpenStreetMap ID
+            tests:
+              - not_null
+          - name: osm_type
+            description: Type of OSM element (relation)
+          - name: name
+            description: Country name
+            tests:
+              - not_null
+          - name: iso3166_1_alpha2
+            description: ISO 3166-1 alpha-2 code
+          - name: iso3166_1_alpha3
+            description: ISO 3166-1 alpha-3 code
+          - name: population
+            description: Population as string
+          - name: capital
+            description: Capital city name
+          - name: wikidata
+            description: Wikidata ID
+          - name: wikipedia
+            description: Wikipedia reference
+          - name: official_name
+            description: Official country name
+          - name: latitude
+            description: Latitude coordinate
+          - name: longitude
+            description: Longitude coordinate
+          - name: geometry_wkt
+            description: Geometry in WKT format (polygon)
+          - name: loaded_at
+            description: Timestamp when data was loaded
+
+models:
+  - name: stg_cities
+    description: Staging model for OpenStreetMap cities
+    columns:
+      - name: osm_id
+        description: OpenStreetMap ID
+        tests:
+          - not_null
+          - unique
+      - name: osm_type
+        description: Type of OSM element (node, way, relation)
+      - name: name
+        description: City name
+      - name: country
+        description: Country name
+      - name: population
+        description: Population as integer
+      - name: wikidata
+        description: Wikidata ID
+      - name: wikipedia
+        description: Wikipedia reference
+      - name: latitude
+        description: Latitude coordinate
+      - name: longitude
+        description: Longitude coordinate
+      - name: geometry
+        description: Spatial geometry object
+      - name: geometry_wkt
+        description: Geometry in WKT format
+      - name: loaded_at
+        description: Timestamp when data was loaded
+  
+  - name: stg_countries
+    description: Staging model for OpenStreetMap countries
+    columns:
+      - name: osm_id
+        description: OpenStreetMap ID
+        tests:
+          - not_null
+          - unique
+      - name: osm_type
+        description: Type of OSM element (relation)
+      - name: name
+        description: Country name
+      - name: iso3166_1_alpha2
+        description: ISO 3166-1 alpha-2 code
+      - name: iso3166_1_alpha3
+        description: ISO 3166-1 alpha-3 code
+      - name: population
+        description: Population as integer
+      - name: capital
+        description: Capital city name
+      - name: wikidata
+        description: Wikidata ID
+      - name: wikipedia
+        description: Wikipedia reference
+      - name: official_name
+        description: Official country name
+      - name: latitude
+        description: Latitude coordinate
+      - name: longitude
+        description: Longitude coordinate
+      - name: geometry
+        description: Spatial geometry object (polygon)
+      - name: geometry_wkt
+        description: Geometry in WKT format
+      - name: loaded_at
+        description: Timestamp when data was loaded
