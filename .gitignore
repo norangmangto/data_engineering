@@ -109,7 +109,6 @@ venv.bak/
 *.swp
 *.swo
 *~
-.DS_Store
 
 # dbt
 target/
