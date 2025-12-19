@@ -1,1 +1,1 @@
-{"_invocation_id": "6e2dda5b-c7ee-4644-a337-0741a120463b", "linked": {"0": {"name": "model.dwd_weather.stg_weather", "type": "model", "succ": [1]}, "1": {"name": "model.dwd_weather.int_weather_features", "type": "model"}}}
+{"_invocation_id": "010814d9-dc2a-4ec8-a65f-b52016edd979", "linked": {"0": {"name": "model.dwd_weather.int_weather_features", "type": "model"}, "1": {"name": "model.dwd_weather.stg_weather", "type": "model", "succ": [0]}}}

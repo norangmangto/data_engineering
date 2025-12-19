@@ -2,7 +2,7 @@
   
   create view "weather"."main"."stg_weather__dbt_tmp" as (
     with source as (
-    select * from read_csv_auto('/Users/norangmangto/works/data_engineering/dwd_weather_prediction/data/raw/dwd_daily_01078.csv')
+    select * from read_csv_auto('../data/raw/dwd_daily_01078.csv')
 ),
 
 renamed as (
