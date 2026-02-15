@@ -1,6 +1,0 @@
-wetterdienst
-pandas
-scikit-learn
-matplotlib
-polars
-fire
