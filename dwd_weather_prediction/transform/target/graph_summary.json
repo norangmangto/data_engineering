@@ -1,1 +1,0 @@
-{"_invocation_id": "010814d9-dc2a-4ec8-a65f-b52016edd979", "linked": {"0": {"name": "model.dwd_weather.int_weather_features", "type": "model"}, "1": {"name": "model.dwd_weather.stg_weather", "type": "model", "succ": [0]}}}
