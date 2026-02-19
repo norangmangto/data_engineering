@@ -2,7 +2,7 @@
     fact_order_reviews
 
     Grain: one row per review.
-    Joins to dim_customer (SCD2-aware) and dim_date.
+    Joins to dim_customer (SCD2-aware); derives review_date_key.
 */
 
 with reviews as (
