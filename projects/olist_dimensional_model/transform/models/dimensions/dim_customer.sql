@@ -116,12 +116,15 @@ final as (
         customer_state,
         cast(valid_from as date) as valid_from,
         cast(
-            coalesce(
-                lead(valid_from) over (
-                    partition by customer_unique_id
-                    order by address_version
-                ) - interval '1 day',
-                '9999-12-31'
+            greatest(
+                cast(valid_from as date),
+                coalesce(
+                    (lead(valid_from) over (
+                        partition by customer_unique_id
+                        order by address_version
+                    ) - interval '1 day')::date,
+                    date '9999-12-31'
+                )
             ) as date
         ) as valid_to,
         case
