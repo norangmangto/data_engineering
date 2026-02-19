@@ -59,6 +59,7 @@ select
     county_code,
     cast(part_a_months as int) as part_a_months,
     cast(part_b_months as int) as part_b_months,
+    cast(hmo_months as int) as hmo_months,
     cast(part_d_months as int) as part_d_months,
     -- Mapping chronic condition indicators (1=Yes, 2=No) to boolean
     case when cast(chronic_alzheimer as int) = 1 then true else false end as chronic_alzheimer,
