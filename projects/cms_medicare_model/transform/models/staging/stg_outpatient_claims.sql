@@ -18,10 +18,9 @@ select
     AT_PHYSN_NPI as attending_physician_npi,
     OP_PHYSN_NPI as operating_physician_npi,
     OT_PHYSN_NPI as other_physician_npi,
-    ADMTNG_ICD9_DGNS_CD as admitting_diagnosis_code,
+    cast(ADMTNG_ICD9_DGNS_CD as string) as admitting_diagnosis_code,
     cast(NCH_BENE_PTB_DDCTBL_AMT as double) as beneficiary_deductible_amount,
     cast(NCH_BENE_PTB_COINSRNC_AMT as double) as beneficiary_coinsurance_amount,
-    cast(ADMTNG_ICD9_DGNS_CD as string) as diagnosis_code_admitting,
     -- Diagnosis codes 1-10
     ICD9_DGNS_CD_1 as diagnosis_code_1,
     ICD9_DGNS_CD_2 as diagnosis_code_2,
