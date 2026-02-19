@@ -11,9 +11,19 @@ with inpatient_proc as (
 ),
 
 outpatient_hcpcs as (
-    -- HCPCS are often in the specific line items/CPT fields, but we simplified in staging
-    -- In a real scenario, we'd pull from all procedural fields.
-    select distinct diagnosis_code_admitting as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where diagnosis_code_admitting is not null
+    -- HCPCS are often in the specific line items/CPT fields.
+    -- Here we derive them from available outpatient procedure fields.
+    select distinct procedure_code_1 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_1 is not null
+    union
+    select distinct procedure_code_2 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_2 is not null
+    union
+    select distinct procedure_code_3 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_3 is not null
+    union
+    select distinct procedure_code_4 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_4 is not null
+    union
+    select distinct procedure_code_5 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_5 is not null
+    union
+    select distinct procedure_code_6 as procedure_code, 'HCPCS/CPT' as type from {{ ref('stg_outpatient_claims') }} where procedure_code_6 is not null
 )
 
 select
