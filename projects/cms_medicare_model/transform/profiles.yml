@@ -1,0 +1,8 @@
+cms_medicare_model:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "../data/warehouse.duckdb"
+      extensions:
+        - httpfs

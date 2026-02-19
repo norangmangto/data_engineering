@@ -1,0 +1,158 @@
+version: 2
+
+models:
+  # Dimensions
+  - name: dim_beneficiary
+    columns:
+      - name: beneficiary_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_provider
+    columns:
+      - name: provider_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_diagnosis
+    columns:
+      - name: icd9_code
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_procedure
+    columns:
+      - name: procedure_code
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_drug
+    columns:
+      - name: drug_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_geography
+    columns:
+      - name: geography_key
+        tests:
+          - unique
+          - not_null
+
+  # Facts
+  - name: fact_inpatient_claims
+    columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
+      - name: beneficiary_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_beneficiary')
+                field: beneficiary_id
+      - name: claim_from_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+
+  - name: fact_outpatient_claims
+    columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
+      - name: beneficiary_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_beneficiary')
+                field: beneficiary_id
+
+  - name: fact_carrier_claims
+    columns:
+      - name: claim_id
+        tests:
+          - unique
+          - not_null
+
+  - name: fact_prescription_drug_events
+    columns:
+      - name: pde_id
+        tests:
+          - unique
+          - not_null
+      - name: drug_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_drug')
+                field: drug_id
+
+  - name: fact_beneficiary_summary
+    columns:
+      - name: beneficiary_id
+        tests:
+          - not_null
+      - name: benefit_year
+        tests:
+          - not_null
+
+  # Bridges
+  - name: bridge_claim_diagnosis
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+      - name: diagnosis_code
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_diagnosis')
+                field: icd9_code
+
+  - name: bridge_claim_procedure
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+      - name: procedure_code
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_procedure')
+                field: procedure_code
+
+  - name: bridge_claim_provider
+    columns:
+      - name: claim_id
+        tests:
+          - not_null
+      - name: provider_npi
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_provider')
+                field: provider_id

@@ -1,0 +1,25 @@
+name: 'cms_medicare_model'
+version: '1.0.0'
+
+profile: 'cms_medicare_model'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+analysis-paths: ["analyses"]
+macro-paths: ["macros"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  cms_medicare_model:
+    staging:
+      +materialized: view
+    dimensions:
+      +materialized: table
+    bridges:
+      +materialized: table
+    facts:
+      +materialized: table
