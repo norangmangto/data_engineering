@@ -16,7 +16,6 @@ select
     part_a_months,
     part_b_months,
     part_d_months,
-    hmo_months,
     chronic_alzheimer,
     chronic_heart_failure,
     chronic_kidney_disease,
