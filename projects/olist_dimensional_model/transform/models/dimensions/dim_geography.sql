@@ -25,7 +25,7 @@ most_common as (
         state,
         row_number() over (
             partition by zip_code_prefix
-            order by occurrence_count desc
+            order by occurrence_count desc, city, state
         ) as rn
     from city_state_counts
 ),
