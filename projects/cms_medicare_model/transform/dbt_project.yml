@@ -16,7 +16,7 @@ clean-targets:
 models:
   cms_medicare_model:
     staging:
-      +materialized: view
+      +materialized: table
     dimensions:
       +materialized: table
     bridges:
