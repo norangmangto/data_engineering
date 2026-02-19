@@ -1,5 +1,5 @@
 with source as (
-    select * from read_csv_auto('../data/raw/olist_geolocation_dataset.csv')
+    select * from {{ source('raw', 'olist_geolocation_dataset') }}
 )
 
 select
