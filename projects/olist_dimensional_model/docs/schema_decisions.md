@@ -124,4 +124,4 @@ This ensures each order item links to the customer's address **at the time of th
 1. **Null handling** — Some orders lack `order_approved_at` or delivery timestamps. These are preserved as `NULL` rather than filtered out, so delivery metrics compute only when data exists.
 2. **Duplicate geolocations** — The raw file has ~1M rows for ~20K zip codes. `dim_geography` deduplicates to one row per zip.
 3. **Missing category translations** — A `LEFT JOIN` to the translation table preserves products whose category has no English name.
-4. **Review deduplication** — The raw data may contain duplicate `review_id` values for the same order; dbt tests validate uniqueness after load.
+4. **Review constraints** — The raw data may contain duplicate `review_id` values for the same order; dbt tests currently enforce `review_id` as `not_null` in `fact_order_reviews`, but do not enforce uniqueness.
