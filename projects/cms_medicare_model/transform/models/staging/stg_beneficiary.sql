@@ -42,7 +42,7 @@ with unioned as (
         MEDREIMB_CAR as reimbursement_carrier,
         BENRES_CAR as deductible_carrier,
         PPPYMT_CAR as primary_payer_carrier
-    from read_csv_auto('../data/raw/DE1_0_{{ year }}_Beneficiary_Summary_File_Sample_1.csv')
+    from {{ source('raw', 'beneficiary_summary_' ~ year) }}
     {% if not loop.last %} union all {% endif %}
     {% endfor %}
 )
