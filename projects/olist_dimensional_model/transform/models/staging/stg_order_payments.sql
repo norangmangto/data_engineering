@@ -1,5 +1,5 @@
 with source as (
-    select * from {{ source('raw', 'order_payments') }}
+    select * from {{ source('raw', 'olist_order_payments_dataset') }}
 )
 
 select
