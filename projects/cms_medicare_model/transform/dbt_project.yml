@@ -1,5 +1,6 @@
 name: 'cms_medicare_model'
 version: '1.0.0'
+config-version: 2
 
 profile: 'cms_medicare_model'
 
