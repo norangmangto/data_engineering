@@ -5,9 +5,9 @@
 */
 
 with unioned as (
-    select * from read_csv_auto('../data/raw/DE1_0_2008_to_2010_Carrier_Claims_Sample_1A.csv')
+    select * from {{ source('raw', 'carrier_claims_sample_1a') }}
     union all
-    select * from read_csv_auto('../data/raw/DE1_0_2008_to_2010_Carrier_Claims_Sample_1B.csv')
+    select * from {{ source('raw', 'carrier_claims_sample_1b') }}
 )
 
 select
