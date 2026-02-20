@@ -137,6 +137,7 @@ models:
     columns:
       - name: review_id
         tests:
+          - unique
           - not_null
       - name: order_id
         tests:
