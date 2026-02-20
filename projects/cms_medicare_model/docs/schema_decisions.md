@@ -8,7 +8,7 @@ The CMS Medicare Claims dimensional model is designed to handle the complexity o
 
 ### 1. Multi-Grain Fact Tables
 
-Unlike a standard retail model where everything might fits into a single `fact_sales` table, healthcare claims happen at different levels:
+Unlike a standard retail model where everything might fit into a single `fact_sales` table, healthcare claims happen at different levels:
 - **Inpatient**: One stay (admission to discharge) is the grain.
 - **Outpatient**: One visit is the grain.
 - **Carrier**: Individual physician/supplier services.
