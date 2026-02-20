@@ -32,6 +32,10 @@ outpatient as (
     where diagnosis_code_{{ i }} is not null
     {% if not loop.last %} union all {% endif %}
     {% endfor %}
+    union all
+    select claim_id, 'Outpatient', admitting_diagnosis_code, 0, true
+    from {{ ref('stg_outpatient_claims') }}
+    where admitting_diagnosis_code is not null
 ),
 
 carrier as (
