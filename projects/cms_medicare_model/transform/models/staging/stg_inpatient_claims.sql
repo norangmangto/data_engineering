@@ -3,7 +3,7 @@
 */
 
 with source as (
-    select * from read_csv_auto('../data/raw/DE1_0_2008_to_2010_Inpatient_Claims_Sample_1.csv')
+    select * from {{ source('raw', 'inpatient_claims') }}
 )
 
 select
