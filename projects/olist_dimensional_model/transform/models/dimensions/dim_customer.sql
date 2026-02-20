@@ -50,9 +50,9 @@ address_versions as (
         *,
         case
             when order_seq = 1 then 1
-            when customer_zip_code_prefix != prev_zip
-                 or customer_city != prev_city
-                 or customer_state != prev_state
+            when customer_zip_code_prefix IS DISTINCT FROM prev_zip
+                 or customer_city IS DISTINCT FROM prev_city
+                 or customer_state IS DISTINCT FROM prev_state
             then 1
             else 0
         end as is_new_version
