@@ -1,0 +1,97 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw Olist e-commerce CSV files"
+    meta:
+      external_location: "read_csv_auto('../data/raw/{name}.csv')"
+    tables:
+      - name: olist_customers_dataset
+        description: "Customer information and locations"
+        columns:
+          - name: customer_id
+            description: "Key to orders – unique per order"
+          - name: customer_unique_id
+            description: "Unique customer identifier across orders"
+          - name: customer_zip_code_prefix
+          - name: customer_city
+          - name: customer_state
+
+      - name: olist_orders_dataset
+        description: "Core order information"
+        columns:
+          - name: order_id
+          - name: customer_id
+          - name: order_status
+          - name: order_purchase_timestamp
+          - name: order_approved_at
+          - name: order_delivered_carrier_date
+          - name: order_delivered_customer_date
+          - name: order_estimated_delivery_date
+
+      - name: olist_order_items_dataset
+        description: "Items within each order"
+        columns:
+          - name: order_id
+          - name: order_item_id
+          - name: product_id
+          - name: seller_id
+          - name: shipping_limit_date
+          - name: price
+          - name: freight_value
+
+      - name: olist_order_payments_dataset
+        description: "Payment transactions for orders"
+        columns:
+          - name: order_id
+          - name: payment_sequential
+          - name: payment_type
+          - name: payment_installments
+          - name: payment_value
+
+      - name: olist_order_reviews_dataset
+        description: "Customer reviews of orders"
+        columns:
+          - name: review_id
+          - name: order_id
+          - name: review_score
+          - name: review_comment_title
+          - name: review_comment_message
+          - name: review_creation_date
+          - name: review_answer_timestamp
+
+      - name: olist_products_dataset
+        description: "Product catalog"
+        columns:
+          - name: product_id
+          - name: product_category_name
+          - name: product_name_lenght
+          - name: product_description_lenght
+          - name: product_photos_qty
+          - name: product_weight_g
+          - name: product_length_cm
+          - name: product_height_cm
+          - name: product_width_cm
+
+      - name: olist_sellers_dataset
+        description: "Seller information and locations"
+        columns:
+          - name: seller_id
+          - name: seller_zip_code_prefix
+          - name: seller_city
+          - name: seller_state
+
+      - name: olist_geolocation_dataset
+        description: "Brazilian zip code coordinates"
+        columns:
+          - name: geolocation_zip_code_prefix
+          - name: geolocation_lat
+          - name: geolocation_lng
+          - name: geolocation_city
+          - name: geolocation_state
+
+      - name: product_category_name_translation
+        description: "Portuguese to English category name translations"
+        columns:
+          - name: product_category_name
+          - name: product_category_name_english

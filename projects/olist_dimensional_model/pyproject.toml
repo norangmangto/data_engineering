@@ -1,0 +1,15 @@
+[project]
+name = "olist_dimensional_model"
+version = "0.1.0"
+description = "Dimensional model for Brazilian E-Commerce (Olist) dataset using dbt + DuckDB"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "dbt-duckdb>=1.6.0",
+    "pandas>=2.0.0",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest",
+]

@@ -1,0 +1,154 @@
+version: 2
+
+models:
+  # ── Dimensions ──────────────────────────────────────────────
+
+  - name: dim_customer
+    description: "SCD Type 2 customer dimension tracking address changes"
+    columns:
+      - name: customer_key
+        description: "Surrogate key"
+        tests:
+          - unique
+          - not_null
+      - name: customer_unique_id
+        description: "Natural business key for the customer"
+        tests:
+          - not_null
+      - name: is_current
+        description: "True for the latest address version"
+        tests:
+          - not_null
+
+  - name: dim_product
+    description: "Product dimension with English category names"
+    columns:
+      - name: product_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_seller
+    description: "Seller dimension"
+    columns:
+      - name: seller_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_date
+    description: "Date dimension (2016-2018)"
+    columns:
+      - name: date_key
+        tests:
+          - unique
+          - not_null
+      - name: full_date
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_geography
+    description: "Geography dimension (one row per zip code prefix)"
+    columns:
+      - name: zip_code_prefix
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_payment_type
+    description: "Payment type dimension"
+    columns:
+      - name: payment_type_key
+        tests:
+          - unique
+          - not_null
+      - name: payment_type
+        tests:
+          - unique
+          - not_null
+
+  # ── Facts ───────────────────────────────────────────────────
+
+  - name: fact_order_items
+    description: "Grain: one row per order item"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: order_item_id
+        tests:
+          - not_null
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_key
+      - name: product_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_product')
+                field: product_id
+      - name: seller_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_seller')
+                field: seller_id
+      - name: order_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+
+  - name: fact_order_payments
+    description: "Grain: one row per payment transaction"
+    columns:
+      - name: order_id
+        tests:
+          - not_null
+      - name: payment_sequential
+        tests:
+          - not_null
+      - name: order_date_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_date')
+                field: date_key
+      - name: payment_type_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_payment_type')
+                field: payment_type_key
+
+  - name: fact_order_reviews
+    description: "Grain: one row per review"
+    columns:
+      - name: review_id
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        tests:
+          - not_null
+      - name: customer_key
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('dim_customer')
+                field: customer_key
+      - name: review_score
+        tests:
+          - not_null
