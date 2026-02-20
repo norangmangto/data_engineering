@@ -8,6 +8,14 @@ with inpatient_proc as (
     select distinct procedure_code_1 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_1 is not null
     union
     select distinct procedure_code_2 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_2 is not null
+    union
+    select distinct procedure_code_3 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_3 is not null
+    union
+    select distinct procedure_code_4 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_4 is not null
+    union
+    select distinct procedure_code_5 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_5 is not null
+    union
+    select distinct procedure_code_6 as procedure_code, 'ICD-9' as type from {{ ref('stg_inpatient_claims') }} where procedure_code_6 is not null
 ),
 
 outpatient_hcpcs as (
